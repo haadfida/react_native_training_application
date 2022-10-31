@@ -13,13 +13,12 @@ export default function App() {
   };
 
   const addGoalHandler = (enteredGoalText) => {
-    if(enteredGoalText.length == 0){
+    if(!enteredGoalText){
       return;
     }
-    console.log(enteredGoalText);
     setCourseGoals((currentCourseGoals) => [
       ...currentCourseGoals,
-      { text: enteredGoalText, id: Math.random().toString() },
+      { text: enteredGoalText, id: enteredGoalText + Math.random().toString() },
     ]);
     cancelGoalAdditionHandler();
   };

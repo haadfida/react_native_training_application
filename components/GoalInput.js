@@ -5,12 +5,12 @@ const GoalInput = props => {
   const [enteredGoalText, setEnteredGoalText] = useState('');
 
   const goalInputHandler = enteredText => {
-    console.log(enteredText)
     setEnteredGoalText(enteredText);
   }
 
   const addGoalHandler = () => {
-    props.onAddGoal(enteredGoalText);
+    const {visible, onAddGoal, onCancel} = props
+    onAddGoal(enteredGoalText);
     setEnteredGoalText('');
   }
 
@@ -24,12 +24,8 @@ const GoalInput = props => {
           value={enteredGoalText}
         />
         <View style={styles.buttonContainer}>
-          <View style={styles.button}>
-            <Button title="Add Goal" onPress={addGoalHandler} />
-          </View>
-          <View style={styles.button}>
-            <Button title="Cancel" onPress={props.onCancel} />
-          </View>
+          <Button style={styles.button} title="Add Goal" onPress={addGoalHandler} />
+          <Button style={styles.button} title="Cancel" onPress={props.onCancel} />
         </View>
       </View>
     </Modal>
