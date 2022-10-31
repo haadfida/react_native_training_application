@@ -12,6 +12,7 @@ export default function App() {
     setIsAddMode(true);
   };
 
+<<<<<<< HEAD
   const addGoalHandler = (enteredGoalText) => {
     if(!enteredGoalText){
       return;
@@ -21,6 +22,10 @@ export default function App() {
       { text: enteredGoalText, id: enteredGoalText + Math.random().toString() },
     ]);
     cancelGoalAdditionHandler();
+=======
+  const goalInputHandler = (enteredText) => {
+    setEnteredGoal(enteredText);
+>>>>>>> 34b81c2006ecc59869e4d00581b068814a44a8be
   };
 
   const deleteGoalHandler = (goalId) => {
@@ -34,6 +39,7 @@ export default function App() {
   };
 
   return (
+<<<<<<< HEAD
     <View style={styles.appContainer}>
       <Button title="Add New Goal" onPress={startAddGoalHandler} />
       <GoalInput
@@ -57,6 +63,15 @@ export default function App() {
             return item.id;
           }}
           alwaysBounceVertical={false}
+=======
+    <View style={styles.screen}>
+      <View style={styles.inputContainer}>
+        <TextInput
+          placeholder="Course Goal"
+          style={styles.input}
+          onChangeText={goalInputHandler}
+          value={enteredGoal}
+>>>>>>> 34b81c2006ecc59869e4d00581b068814a44a8be
         />
       </View>
     </View>
