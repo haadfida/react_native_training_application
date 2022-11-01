@@ -44,17 +44,22 @@ const StartGameScreen = (props) => {
     Keyboard.dismiss();
   };
 
-  let confirmedOutput;
 
-  if (confirmed) {
-    confirmedOutput = (
-      <Card style={styles.summaryContrainer}>
-        <Text>You selected</Text>
-        <NumberContainer>{selectedNumber}</NumberContainer>
-        <Button title="START GAME" onPress={() => props.onStartGame(selectedNumber)} />
-      </Card>
-    );
-  }
+  const confirmedOutput = 
+  props => {
+    if (confirmed) {
+      return (
+        <Card style={styles.summaryContrainer}>
+          <Text>You selected</Text>
+          <NumberContainer>{selectedNumber}</NumberContainer>
+          <Button
+            title="START GAME"
+            onPress={() => props.onStartGame(selectedNumber)}
+          />
+        </Card>
+      );
+    }
+  };
 
   return (
     <TouchableWithoutFeedback
@@ -91,7 +96,7 @@ const StartGameScreen = (props) => {
             />
           </View>
         </Card>
-        {confirmedOutput}
+        {confirmedOutput(props)}
       </View>
     </TouchableWithoutFeedback>
   );
@@ -127,7 +132,7 @@ const styles = StyleSheet.create({
   },
   summaryContrainer: {
     marginTop: 20,
-    alignItems: 'center',
+    alignItems: "center",
   },
 });
 
