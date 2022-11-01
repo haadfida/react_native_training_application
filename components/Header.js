@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   headerTitle: {
-    color: "black",
+    color: Colors.black,
     fontSize: 18,
   },
 });
